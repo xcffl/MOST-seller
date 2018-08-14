@@ -1,15 +1,39 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Login from '@/components/Login'
+import ordermanage from '@/components/order_manage'
+import ordersta from '@/components/order_sta'
+import shopmanage from '@/components/shop_manage'
+import gooddetail from '@/components/good_detail'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'Login',
+    //   component: Login
+    // },
+    // {
+    //   path: '/',
+    //   name: 'ordermanage',
+    //   component: ordermanage
+    // },
+    // {
+    //   path: '/',
+    //   name: 'ordersta',
+    //   component: ordersta
+    // },
+    // {
+    //   path: '/',
+    //   name: 'shopmanage',
+    //   component: shopmanage
+    // },
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'gooddetail',
+      component: gooddetail
     }
   ]
 })
