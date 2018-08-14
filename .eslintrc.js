@@ -1,27 +1,31 @@
-// http://eslint.org/docs/user-guide/configuring
+'use strict'
+
+const version = require('./package.json').version
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
-    sourceType: 'module'
+    ecmaVersion: 6
   },
   env: {
-    browser: true,
+    node: true,
+    mocha: true
   },
-  // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: 'standard',
-  // required to lint *.vue files
+  extends: ["plugin:vue/recommended"],
   plugins: [
     'html'
   ],
-  // add your custom rules here
-  'rules': {
-    // allow paren-less arrow functions
-    'arrow-parens': 0,
-    // allow async-await
-    'generator-star-spacing': 0,
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
-  }
+  rules: {
+  },
+
+  overrides: [{
+    files: ['lib/rules/*.js'],
+    rules: {
+      "consistent-docs-description": "error",
+      "no-invalid-meta": "error",
+      "require-meta-docs-url": ["error", {
+        "pattern": `https://github.com/vuejs/eslint-plugin-vue/blob/v${version}/docs/rules/{{name}}.md`
+      }]
+    }
+  }]
 }
