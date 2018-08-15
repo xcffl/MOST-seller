@@ -15,21 +15,21 @@ export default new Router({
     //   name: 'Login',
     //   component: Login
     // },
-    // {
-    //   path: '/',
-    //   name: 'ordermanage',
-    //   component: ordermanage
-    // },
-    // {
-    //   path: '/',
-    //   name: 'ordersta',
-    //   component: ordersta
-    // },
-    // {
-    //   path: '/',
-    //   name: 'shopmanage',
-    //   component: shopmanage
-    // },
+    {
+      path: '/',
+      name: 'ordermanage',
+      component: ordermanage
+    },
+    {
+      path: '/',
+      name: 'ordersta',
+      component: ordersta
+    },
+    {
+      path: '/',
+      name: 'shopmanage',
+      component: shopmanage
+    },
     {
       path: '/',
       name: 'gooddetail',
