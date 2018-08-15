@@ -12,6 +12,7 @@
       <v-list>
         <v-list-tile
           value="true"
+          @click=""
           v-for="(item, i) in items"
           :key="i"
         >
@@ -63,9 +64,6 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2017</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -75,15 +73,27 @@ export default {
     return {
       clipped: false,
       drawer: true,
-      fixed: false,
+      fixed: true,
       items: [{
         icon: 'bubble_chart',
-        title: 'Inspire'
+        title: 'MOST校园平台',
+      },
+      {
+        icon: 'bubble_chart',
+        title: '订单管理',
+      },
+      {
+        icon: 'bubble_chart',
+        title: '店铺管理'
+      },
+      {
+        icon: 'bubble_chart',
+        title: '订单统计'
       }],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'MOST 校园平台'
     }
   },
   name: 'App'
