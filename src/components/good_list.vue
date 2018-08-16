@@ -41,7 +41,7 @@
 
         <v-list two-line subheader>
         
-          <v-header inset>Today</v-header>
+          <v-header>套餐</v-header>
             <v-btn icon ripple>
               <v-icon color="grey lighten-1">clear</v-icon>
             </v-btn>

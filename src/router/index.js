@@ -5,6 +5,7 @@ import ordermanage from '@/components/order_manage'
 import ordersta from '@/components/order_sta'
 import shopmanage from '@/components/shop_manage'
 import gooddetail from '@/components/good_detail'
+import goodlist from '@/components/good_list'
 
 Vue.use(Router)
 
@@ -15,25 +16,30 @@ export default new Router({
     //   name: 'Login',
     //   component: Login
     // },
+    // {
+    //   path: '/',
+    //   name: 'ordermanage',
+    //   component: ordermanage
+    // },
     {
       path: '/',
-      name: 'ordermanage',
-      component: ordermanage
+      name: 'goodlist',
+      component: goodlist
     },
-    {
-      path: '/',
-      name: 'ordersta',
-      component: ordersta
-    },
-    {
-      path: '/',
-      name: 'shopmanage',
-      component: shopmanage
-    },
-    {
-      path: '/',
-      name: 'gooddetail',
-      component: gooddetail
-    }
+    // {
+    //   path: '/',
+    //   name: 'ordersta',
+    //   component: ordersta
+    // },
+    // {
+    //   path: '/',
+    //   name: 'shopmanage',
+    //   component: shopmanage
+    // },
+    // {
+    //   path: '/',
+    //   name: 'gooddetail',
+    //   component: gooddetail
+    // }
   ]
 })
