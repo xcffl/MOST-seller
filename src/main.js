@@ -12,11 +12,13 @@ import {
   VBtn,
   VIcon,
   VGrid,
+  VMenu,
   VToolbar,
   transitions,
   Vcard,
   Vform,
-  VTextField
+  VTextField,
+  VParallax
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
 
@@ -33,7 +35,9 @@ Vue.use(Vuetify, {
     transitions,
     Vcard,
     Vform,
-    VTextField
+    VTextField,
+    VMenu,
+    VParallax
   }
 })
 

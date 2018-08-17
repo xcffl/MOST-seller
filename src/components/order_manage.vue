@@ -63,7 +63,8 @@
             </v-list-tile-content>
 
             <v-list-tile-content>
-             <v-list-tile-title>{{ item.way }}</v-list-tile-title>
+              <v-list-tile-title>{{ item.way }}</v-list-tile-title>
+              <v-list-tile-sub-title>备注：{{ item.remark }}</v-list-tile-sub-title>
             </v-list-tile-content>
 
             <v-icon color="indigo lighten-1">attach_money</v-icon>
@@ -116,7 +117,8 @@
             </v-list-tile-content>
 
             <v-list-tile-content>
-             <v-list-tile-title>{{ item.way }}</v-list-tile-title>
+              <v-list-tile-title>{{ item.way }}</v-list-tile-title>
+              <v-list-tile-sub-title>备注：{{ item.remark }}</v-list-tile-sub-title>
             </v-list-tile-content>
 
             <v-icon color="indigo lighten-1">attach_money</v-icon>
@@ -153,19 +155,55 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        items: [
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"立即配送",cost:"28￥",number:"12344232976"},
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"4:30配送",cost:"28￥",number:"12344232976"},
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"6:00送达",cost:"28￥",number:"12344232976"},
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"立即配送",cost:"28￥",number:"12344232976"},
-        ],
-        items2: [
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"10:40配送",cost:"28￥",number:"12344232976"},
-        ]
-      }
-    }
+export default {
+  data() {
+    return {
+      items: [
+        {
+          title: "肠粉",
+          date: "8:30, Jan 9, 2018",
+          place: "上园",
+          way: "立即配送",
+          remark: "不放葱",
+          cost: "28￥",
+          number: "12344232976"
+        },
+        {
+          title: "肠粉",
+          date: "8:30, Jan 9, 2018",
+          place: "上园",
+          way: "4:30配送",
+          cost: "28￥",
+          number: "12344232976"
+        },
+        {
+          title: "肠粉",
+          date: "8:30, Jan 9, 2018",
+          place: "上园",
+          way: "6:00送达",
+          cost: "28￥",
+          number: "12344232976"
+        },
+        {
+          title: "肠粉",
+          date: "8:30, Jan 9, 2018",
+          place: "上园",
+          way: "立即配送",
+          cost: "28￥",
+          number: "12344232976"
+        }
+      ],
+      items2: [
+        {
+          title: "肠粉",
+          date: "8:30, Jan 9, 2018",
+          place: "上园",
+          way: "10:40配送",
+          cost: "28￥",
+          number: "12344232976"
+        }
+      ]
+    };
   }
+};
 </script>

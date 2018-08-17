@@ -1,171 +1,111 @@
 <template>
+  <v-container fluid grid-list-xl>
+    <!-- <v-layout row wrap> -->
 
-  <v-layout row>
-    <v-flex xs100 sm100 offset-sm>
-      <v-card>
+      <v-flex d-flex xs12 md90 >
 
-      
-
-        <v-toolbar color="indigo lighten-2" dark>
-        
-        
-          <v-btn-toggle v-model="text">
-              <v-btn flat value="left">
-                所有订单
-              </v-btn>
-              <v-btn flat value="center">
-                已完成
-              </v-btn>
-              <v-btn flat value="right">
-                进行中
-              </v-btn>
-              <v-btn flat value="right">
-                已取消
-              </v-btn>
-          </v-btn-toggle>
-
-          <v-spacer></v-spacer>
+        <v-card color="light-blue lighten-4"  height="60px">
           
-          <v-toolbar-title>订单管理</v-toolbar-title>
+          <v-toolbar color="indigo lighten-2" dark>
 
-          <v-spacer></v-spacer>
-
-          <v-btn icon>
-            <v-icon>print</v-icon>
-          </v-btn>
-
-          <v-btn icon>
-            <v-icon>add</v-icon>
-          </v-btn>
-        </v-toolbar>
-
-        <v-list two-line subheader>
-        
-          <v-header>套餐</v-header>
-            <v-btn icon ripple>
-              <v-icon color="grey lighten-1">clear</v-icon>
-            </v-btn>
-
-          <v-list-tile
-            v-for="item in items"
-            :key="item.title"           
+          <v-menu bottom left>
+            <v-btn
+              transition="slide-y-transition"
+              slot="activator"
+              dark
+              icon
             >
+              <v-icon>list</v-icon>
+            </v-btn>
+
+            <v-list>
+              
+              <v-list-tile
+                v-for="(item, i) in labels"
+                :key="i"
+                @click=""
+              >
+                <v-list-tile-title>{{ item.name}}</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+
+
+
           
-            <v-list-tile-avatar>
-              <v-icon color="indigo lighten-1">fastfood</v-icon>
-            </v-list-tile-avatar>
-            
 
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              <v-list-tile-sub-title>{{ item.date }}</v-list-tile-sub-title>
-              <v-list-tile-sub-title>{{ item.place }}</v-list-tile-sub-title>
-            </v-list-tile-content>
+          <v-spacer></v-spacer>
+          
+          <v-toolbar-title>商品管理</v-toolbar-title>
 
-            <v-list-tile-content>
-             <v-list-tile-title>{{ item.way }}</v-list-tile-title>
-            </v-list-tile-content>
 
-            <v-icon color="indigo lighten-1">attach_money</v-icon>
+            <v-spacer></v-spacer>
 
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.cost }}</v-list-tile-title>
-            </v-list-tile-content>
-
-            <v-btn icon ripple>            
-              <v-icon color="indigo lighten-1">phone</v-icon>
+            <v-btn icon>
+              <v-icon>print</v-icon>
             </v-btn>
 
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.number }}</v-list-tile-title>
-            </v-list-tile-content>
-
-            <v-btn color="primary">接单</v-btn>
-            <v-btn color="primary">拒单</v-btn>
-            <v-btn color="primary">详细信息</v-btn>
-
-            <v-list-tile-action>
-              <v-btn icon ripple>
-                <v-icon color="grey lighten-1">clear</v-icon>
-              </v-btn>
-            </v-list-tile-action>
-
-          </v-list-tile>
-
-          <v-divider inset></v-divider>
-
-          <v-subheader inset>Before</v-subheader>
-            <v-btn icon ripple>
-              <v-icon color="grey lighten-1">clear</v-icon>
+            <v-btn icon>
+              <v-icon>add</v-icon>
             </v-btn>
 
-          <v-list-tile
-            v-for="item in items2"
-            :key="item.title"
-            avatar
-            @click=""
-          >
-            <v-list-tile-avatar>
-              <v-icon color="indigo lighten-1">fastfood</v-icon>
-            </v-list-tile-avatar>
+          </v-toolbar>
+        </v-card>
+      </v-flex>
 
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              <v-list-tile-sub-title>{{ item.date }}</v-list-tile-sub-title>
-              <v-list-tile-sub-title>{{ item.place }}</v-list-tile-sub-title>
-            </v-list-tile-content>
+   <v-layout row wrap>
 
-            <v-list-tile-content>
-             <v-list-tile-title>{{ item.way }}</v-list-tile-title>
-            </v-list-tile-content>
+      <v-flex v-for="item in items"
+        :key="item.title" lg3>
+        <v-card color="white" >
+        
 
-            <v-icon color="indigo lighten-1">attach_money</v-icon>
+        <v-card-media src="@assets/chicken.jpg" height="200px" v-layout="left" ></v-card-media>
+        
+        <v-card-title primary class="title blue-grey--text text--darken-3" >
+          <h2>{{item.title}}</h2>
+          <v-btn icon> <v-icon color="blue-grey darken-3">{{label}}</v-icon> </v-btn>
+          <v-spacer></v-spacer>
+        </v-card-title>
 
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.cost }}</v-list-tile-title>
-            </v-list-tile-content>
+        <v-card-title primary class="title blue-grey--text text--darken-3">份数：23/{{item.number}}</v-card-title>
 
-            <v-btn icon ripple>            
-              <v-icon color="indigo lighten-1">phone</v-icon>
-            </v-btn>
+        <v-card-text primary class="title blue-grey--text text--darken-3">
+          价格：{{item.price}}￥
+        </v-card-text>
 
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.number }}</v-list-tile-title>
-            </v-list-tile-content>
+        <v-card-actions>
+          <v-btn icon> <v-icon color="blue-grey darken-3">edit</v-icon> </v-btn>
+          <v-btn icon> <v-icon color="blue-grey darken-3">delete</v-icon> </v-btn>
+          <v-btn icon> <v-icon color="blue-grey darken-3">add</v-icon> </v-btn>
+        </v-card-actions>
 
+        </v-card>
+        
+      </v-flex>
+      
+    </v-layout>
 
-
-            <v-btn color="primary">接单</v-btn>
-            <v-btn color="primary">拒单</v-btn>
-            <v-btn color="primary">详细信息</v-btn>
-
-            <v-list-tile-action>
-              <v-btn icon ripple>
-                <v-icon color="grey lighten-1">clear</v-icon>
-              </v-btn>
-            </v-list-tile-action>
-
-          </v-list-tile>
-        </v-list>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  </v-container>
 </template>
 
+
+
 <script>
-  export default {
-    data () {
-      return {
-        items: [
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"立即配送",cost:"28￥",number:"12344232976"},
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"4:30配送",cost:"28￥",number:"12344232976"},
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"6:00送达",cost:"28￥",number:"12344232976"},
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"立即配送",cost:"28￥",number:"12344232976"},
-        ],
-        items2: [
-          {title: '肠粉', date: '8:30, Jan 9, 2018', place:"上园", way:"10:40配送",cost:"28￥",number:"12344232976"},
-        ]
-      }
-    }
+export default {
+  data() {
+    return {
+      items: [
+        {
+          title: "肠粉",
+          number: "142",
+          price: "21",
+          picture:
+            "http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg"
+        }
+      ],
+      labels: [{ name: "套餐" }, { name: "主食" }]
+    };
   }
+};
 </script>

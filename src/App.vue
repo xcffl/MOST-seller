@@ -1,5 +1,7 @@
 <template>
   <v-app>
+    <v-parallax src="@assets/school.jpg" height=900>
+
     <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
@@ -10,9 +12,10 @@
       app
     >
       <v-list>
+
         <v-list-tile
           value="true"
-          @click=""
+          @click="menuClicked(item.path)"
           v-for="(item, i) in items"
           :key="i"
         >
@@ -23,7 +26,9 @@
             <v-list-tile-title v-text="item.title"></v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+
       </v-list>
+
     </v-navigation-drawer>
     <v-toolbar
       app
@@ -41,61 +46,54 @@
       </v-btn>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>menu</v-icon>
-      </v-btn>
     </v-toolbar>
     <v-content>
       <router-view/>
     </v-content>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-tile @click="right = !right">
-          <v-list-tile-action>
-            <v-icon>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
+    </v-parallax>
   </v-app>
 </template>
 
 <script>
 export default {
-  data () {
+  methods: {
+    menuClicked(path) {
+      this.$router.push({ path: path });
+    }
+  },
+
+  data() {
     return {
       clipped: false,
       drawer: true,
       fixed: true,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'MOST校园平台',
-      },
-      {
-        icon: 'bubble_chart',
-        title: '订单管理',
-      },
-      {
-        icon: 'bubble_chart',
-        title: '店铺管理'
-      },
-      {
-        icon: 'bubble_chart',
-        title: '订单统计'
-      }],
+      items: [
+        {
+          icon: "bubble_chart",
+          title: "MOST校园平台",
+          path: "login"
+        },
+        {
+          icon: "bubble_chart",
+          title: "订单管理",
+          path: "ordermanage"
+        },
+        {
+          icon: "shop",
+          title: "店铺管理",
+          path: "goodlist"
+        },
+        {
+          icon: "bubble_chart",
+          title: "订单统计"
+        }
+      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'MOST 校园平台'
-    }
+      title: "MOST 校园平台"
+    };
   },
-  name: 'App'
-}
+  name: "App"
+};
 </script>

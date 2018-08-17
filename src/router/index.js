@@ -11,35 +11,35 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'Login',
-    //   component: Login
-    // },
-    // {
-    //   path: '/',
-    //   name: 'ordermanage',
-    //   component: ordermanage
-    // },
     {
-      path: '/',
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/ordermanage',
+      name: 'ordermanage',
+      component: ordermanage
+    },
+    {
+      path: '/goodlist',
       name: 'goodlist',
       component: goodlist
     },
-    // {
-    //   path: '/',
-    //   name: 'ordersta',
-    //   component: ordersta
-    // },
-    // {
-    //   path: '/',
-    //   name: 'shopmanage',
-    //   component: shopmanage
-    // },
-    // {
-    //   path: '/',
-    //   name: 'gooddetail',
-    //   component: gooddetail
-    // }
+    {
+      path: '/ordersta',
+      name: 'ordersta',
+      component: ordersta
+    },
+    {
+      path: '/shopmanage',
+      name: 'shopmanage',
+      component: shopmanage
+    },
+    {
+      path: '/gooddetail',
+      name: 'gooddetail',
+      component: gooddetail
+    }
   ]
 })
