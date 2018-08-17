@@ -3,13 +3,26 @@
   <v-layout row>
     <v-flex xs100 sm100 offset-sm>
       <v-card>
-
-      
-
         <v-toolbar color="indigo lighten-2" dark>
         
-        
-          <v-btn-toggle v-model="text">
+
+        <v-tabs
+      v-model="active"
+      color="cyan"
+      dark
+      slider-color="yellow"
+        >
+        </v-tabs>
+
+         <v-tab
+        v-for="n in 3"
+        :key="n"
+        ripple
+      >
+        Item {{ n }}
+
+      </v-tab>
+          <!-- <v-btn-toggle v-model="text">
               <v-btn flat value="left">
                 所有订单
               </v-btn>
@@ -23,7 +36,7 @@
                 已取消
               </v-btn>
           </v-btn-toggle>
-
+ -->
           <v-spacer></v-spacer>
           
           <v-toolbar-title>订单管理</v-toolbar-title>

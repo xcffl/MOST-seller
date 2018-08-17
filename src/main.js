@@ -18,7 +18,10 @@ import {
   Vcard,
   Vform,
   VTextField,
-  VParallax
+  VParallax,
+  VTabs,
+  VDivider
+
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
 
@@ -37,7 +40,9 @@ Vue.use(Vuetify, {
     Vform,
     VTextField,
     VMenu,
-    VParallax
+    VParallax,
+    VTabs,
+    VDivider
   }
 })
 

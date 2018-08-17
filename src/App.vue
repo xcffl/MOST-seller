@@ -1,7 +1,6 @@
 <template>
   <v-app>
-    <v-parallax src="@assets/school.jpg" height=900>
-
+    <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="900">
     <v-navigation-drawer
       persistent
       :mini-variant="miniVariant"
@@ -50,8 +49,9 @@
     <v-content>
       <router-view/>
     </v-content>
-    </v-parallax>
+      </v-parallax>
   </v-app>
+
 </template>
 
 <script>
