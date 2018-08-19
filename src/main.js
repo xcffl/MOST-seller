@@ -20,8 +20,9 @@ import {
   VTextField,
   VParallax,
   VTabs,
-  VDivider
-
+  VDivider,
+  VDataTable,
+  VDataIterator,
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
 
@@ -42,7 +43,9 @@ Vue.use(Vuetify, {
     VMenu,
     VParallax,
     VTabs,
-    VDivider
+    VDivider,
+    VDataTable,
+    VDataIterator,
   }
 })
 
