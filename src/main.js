@@ -51,6 +51,19 @@ Vue.use(Vuetify, {
 
 Vue.config.productionTip = false
 
+
+import AV from "leancloud-storage";
+
+var APP_ID = "gv3b8YLk2FJivsHpsEHlf81U-9Nh9j0Va";
+var APP_KEY = "StWz5nlyJxOxeplQn87UyDgR";
+
+AV.init({
+  appId: APP_ID,
+  appKey: APP_KEY,
+});
+Vue.prototype.$AV = AV;
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

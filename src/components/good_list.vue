@@ -47,7 +47,7 @@
               <v-icon>print</v-icon>
             </v-btn>
 
-            <v-btn icon>
+            <v-btn icon @click=add_good>
               <v-icon>add</v-icon>
             </v-btn>
 
@@ -63,7 +63,8 @@
         
 
         <v-card-media src="http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg" height="200px" ></v-card-media>
-        
+
+        <v-card-title primary class="title blue-grey--text text--darken-3">{{item.title}}</v-card-title>
 
         <v-card-title primary class="title blue-grey--text text--darken-3">份数：23/{{item.number}}</v-card-title>
 
@@ -90,6 +91,12 @@
 
 <script>
 export default {
+  methods: {
+    add_good(path) {
+      this.$router.push({ path: "addgood" });
+    }
+  },
+
   data() {
     return {
       items: [

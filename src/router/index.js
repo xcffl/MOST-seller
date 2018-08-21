@@ -3,8 +3,8 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import ordermanage from '@/components/order_manage'
 import ordersta from '@/components/order_sta'
-import gooddetail from '@/components/good_detail'
 import goodlist from '@/components/good_list'
+import addgood from '@/components/add_good'
 
 Vue.use(Router)
 
@@ -31,9 +31,9 @@ export default new Router({
       component: ordersta
     },
     {
-      path: '/gooddetail',
-      name: 'gooddetail',
-      component: gooddetail
+      path: '/addgood',
+      name: 'addgood',
+      component: addgood
     }
   ]
 })

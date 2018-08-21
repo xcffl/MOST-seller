@@ -3,7 +3,7 @@
     <v-flex xs12 sm15 offset-sm0>
       <v-card>
         <v-card-media
-          src="@/assets/"
+          src="http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg"
           height="400px"
         >
           <v-layout
@@ -11,30 +11,35 @@
             fill-height
           >
             <v-card-title>
-              <v-btn dark icon>
-                <v-icon>chevron_left</v-icon>
+              <v-btn dark icon @click=return_list>
+                <v-icon color='black'>chevron_left</v-icon>
               </v-btn>
 
               <v-spacer></v-spacer>
 
               <v-btn dark icon class="mr-3">
-                <v-icon>edit</v-icon>
+                <v-icon color="black">save</v-icon>
               </v-btn>
 
               <v-btn dark icon>
-                <v-icon>more_vert</v-icon>
+                <v-icon color="black">more_vert</v-icon>
               </v-btn>
             </v-card-title>
 
             <v-spacer></v-spacer>
 
             <v-card-title class="black--text pl-5 pt-5">
-              <div class="display-1 pl-5 pt-5">商品名称</div>
+              <div class="display-1">编辑商品名称</div>
+              <v-btn dark icon class="mr-3">
+                <v-icon color="indigo">edit</v-icon>
+              </v-btn>
+
             </v-card-title>
           </v-layout>
         </v-card-media>
 
         <v-list two-line>
+
           <v-list-tile @click="">
             <v-list-tile-action>
               <v-icon color="indigo">fastfood</v-icon>
@@ -48,6 +53,18 @@
             <v-list-tile-action>
               <v-icon>bookmark</v-icon>
             </v-list-tile-action>
+          </v-list-tile>
+
+          <v-list-tile @click="">
+            <v-list-tile-action>
+              <v-icon color="indigo">label</v-icon>
+            </v-list-tile-action>
+
+            <v-list-tile-content>
+              <v-list-tile-title>类别</v-list-tile-title>
+              <v-list-tile-sub-title>Material</v-list-tile-sub-title>
+            </v-list-tile-content>
+
           </v-list-tile>
 
           <v-list-tile @click="">
@@ -69,8 +86,8 @@
             </v-list-tile-action>
 
             <v-list-tile-content>
-              <v-list-tile-title>销量</v-list-tile-title>
-              <v-list-tile-sub-title>Sales Volume</v-list-tile-sub-title>
+              <v-list-tile-title>推荐指数</v-list-tile-title>
+              <v-list-tile-sub-title>Recommendation Index</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
 
@@ -83,3 +100,29 @@
     </v-flex>
   </v-layout>
 </template>
+
+<script>
+export default {
+  methods: {
+    return_list(path) {
+      this.$router.push({ path: "goodlist" });
+    }
+  }
+
+  //   data() {
+  //     return {
+  //       items: [
+  //         {
+  //           title: "肠粉",
+  //           date: "8:30, Jan 9, 2018",
+  //           place: "上园",
+  //           way: "立即配送",
+  //           remark: "不放葱",
+  //           cost: "28￥",
+  //           number: "12344232976"
+  //         }
+  //       ]
+  //     };
+  //   }
+};
+</script>
