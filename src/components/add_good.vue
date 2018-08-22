@@ -18,7 +18,7 @@
               <v-spacer></v-spacer>
 
               <v-btn dark icon class="mr-3">
-                <v-icon color="black">save</v-icon>
+                <v-icon color="black" @click=test>save</v-icon>
               </v-btn>
 
               <v-btn dark icon>
@@ -40,7 +40,7 @@
 
         <v-list two-line>
 
-          <v-list-tile @click="">
+          <v-list-tile @click="TODO">
             <v-list-tile-action>
               <v-icon color="indigo">fastfood</v-icon>
             </v-list-tile-action>
@@ -55,7 +55,7 @@
             </v-list-tile-action>
           </v-list-tile>
 
-          <v-list-tile @click="">
+          <v-list-tile @click="TODO">
             <v-list-tile-action>
               <v-icon color="indigo">label</v-icon>
             </v-list-tile-action>
@@ -67,7 +67,7 @@
 
           </v-list-tile>
 
-          <v-list-tile @click="">
+          <v-list-tile @click="TODO">
             <v-list-tile-action>
               <v-icon color="indigo">attach_money</v-icon>
             </v-list-tile-action>
@@ -80,7 +80,7 @@
 
           <v-divider inset></v-divider>
 
-          <v-list-tile @click="">
+          <v-list-tile @click="TODO">
             <v-list-tile-action>
               <v-icon color="indigo">star</v-icon>
             </v-list-tile-action>
@@ -94,7 +94,6 @@
 
           <v-divider inset></v-divider>
 
-          </v-list-tile>
         </v-list>
       </v-card>
     </v-flex>
@@ -106,6 +105,14 @@ export default {
   methods: {
     return_list(path) {
       this.$router.push({ path: "goodlist" });
+    },
+    test() {
+      var Product = this.$AV.Object.extend("TestObject");
+      var product = new Product();
+
+      product.set("words", "gewgew");
+
+      product.save();
     }
   }
 
@@ -125,4 +132,10 @@ export default {
   //     };
   //   }
 };
+
+// product.set("price", 132);
+// product.set("description", "description");
+// product.set("owner", this.$AV.User.current());
+
+// console.log("Add a product");
 </script>

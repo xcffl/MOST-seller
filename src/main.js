@@ -62,6 +62,8 @@ AV.init({
   appKey: APP_KEY,
 });
 Vue.prototype.$AV = AV;
+var { Query, User } = AV;
+
 
 
 /* eslint-disable no-new */

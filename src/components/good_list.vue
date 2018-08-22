@@ -28,9 +28,6 @@
                 </v-list-tile-title>
               </v-list-tile>
 
-              <v-btn icon>
-                <v-icon>add</v-icon>
-              </v-btn>
 
             </v-list>
           </v-menu>
@@ -61,8 +58,8 @@
         :key="item.id" lg3>
         <v-card color="white" >
         
-
-        <v-card-media src="http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg" height="200px" ></v-card-media>
+<!-- http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg -->
+        <v-card-media :src="item.picture" height="200px" ></v-card-media>
 
         <v-card-title primary class="title blue-grey--text text--darken-3">{{item.title}}</v-card-title>
 
@@ -91,50 +88,58 @@
 
 <script>
 export default {
-  methods: {
-    add_good(path) {
-      this.$router.push({ path: "addgood" });
-    }
-  },
-
   data() {
     return {
       items: [
-        {
-          id: "1",
-          title: "肠粉",
-          number: "142",
-          price: "21",
-          picture:
-            "http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg"
-        },
-        {
-          id: "2",
-          title: "蛋炒饭",
-          number: "142",
-          price: "21",
-          picture:
-            "http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg"
-        },
-        {
-          id: "3",
-          title: "炸鸡",
-          number: "142",
-          price: "21",
-          picture:
-            "http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg"
-        },
-        {
-          id: "4",
-          title: "肠粉",
-          number: "142",
-          price: "21",
-          picture:
-            "http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg"
-        }
+        // {
+        //   id: "1",
+        //   title: "肠粉",
+        //   number: "142",
+        //   price: "21",
+        //   picture:
+        //     "http://img5.imgtn.bdimg.com/it/u=529036927,1288602622&fm=200&gp=0.jpg"
+        // },
       ],
       labels: [{ name: "套餐" }, { name: "饮料" }]
     };
+  },
+
+  created() {
+    // page_index 一旦改变就触发 onPageChange 事件有点不妥，故加了这个变量做限制
+    // this.onPageChangeLock = false;
+    this.haha();
+  },
+
+  methods: {
+    add_good(path) {
+      this.$router.push({ path: "addgood" });
+    },
+
+    haha() {
+      var that = this;
+      var query = new this.$AV.Query("Trade_drink_food");
+      query.include("words");
+      query.descending("createdAt");
+      query.find().then(function(products) {
+        if (products) {
+          products.forEach(element => {
+            var product = element.attributes;
+            product.createdAt = element.createdAt;
+            that.items.push(product);
+          });
+          that.page_count = 1;
+          that.loading = false;
+        }
+        console.log("nonthing here");
+      });
+      console.log(query);
+    }
   }
+
+  // created() {
+  //   // page_index 一旦改变就触发 onPageChange 事件有点不妥，故加了这个变量做限制
+  //   this.onPageChangeLock = false;
+  //   this._fetchOrderList();
+  // }
 };
 </script>
